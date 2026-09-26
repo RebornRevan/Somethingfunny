@@ -5,19 +5,22 @@
 #include <random>
 #include <string>
 #include <ctime>
-#include <openssl/sha.h>
 #include <iomanip>
+#include <unordered_map>
+#include <openssl/sha.h>
+
 
 using namespace std;
 
 
+//Library for creating secret keys(consists of 6 key words), Сборник для создания секретного ключа(состоит из 6 слов)
 const vector<string> library = { "Crypto", "Newcastle", "Axle", "Conduit", "Bangalore", "Fuse", "Revenant", "MadMaggie", "Ballistic", "Wraith", "Octaine", "Pathfinder", "Horizon",
 "Ash", "Alter", "Bloodhound", "Seer", "Valkyrie", "Sparrow", "Vantage", "Gibraltar", "Lifeline", "Mirage", "Loba", "Wattson", "Caustic", "Rampart", "Catalyst" };
 
 
 
 string sha256(const string& str) {
-	// Creating array on 32 bytes, массив на 32 байта
+	// Creating array on 32 bytes for hash, массив на 32 байта для хэша
 	unsigned char hash[SHA256_DIGEST_LENGTH];
 
 	// Creating hash, создание хэша
@@ -26,7 +29,7 @@ string sha256(const string& str) {
 	SHA256_Update(&sha256, str.c_str(), str.size());
 	SHA256_Final(hash, &sha256);
 
-	//Converting to 16th NumSystem, перевод в шестнадцатиричную систему
+	//Converting to 16th NumSystem, перевод в шестнадцатеричную систему
 	stringstream str_hex;
 	for (int i = 0; i < SHA256_DIGEST_LENGTH; i++) {
 		str_hex << hex << setw(2) << setfill('0') << (int)hash[i];
@@ -131,18 +134,28 @@ class BlockChain {
 		}
 };
 
+
+
 class Account {
 	private:
-		string address;		//Address of account, адрес аккаунта
+		string name;		//Name of account, имя аккаунта
+		string password;		//
 		double balance;		//Balance of account, баланс аккаунта
 		vector<string> secretKeys;	//Vector of secret keys, вектор секретных ключей
 	public:
-		Account(string addr, double bal) : address(addr), balance(bal) {}
-		string getAddress() const { return address; }
+		Account(string name, double bal) : name(name), balance(bal) {
+			secretKeys = generateSecretKeys();
+		}
+
+		// Getters for name and balance, геттеры для имени и баланса
+		string getName() const { return name; }
 		double getBalance() const { return balance; }
 
+		// Simple adding money to the account(in the future will be divided by whom: account user itself or by other user),
+		// Добавляет деньги на счет(потом будет разделено на пополнение счета и на перевод с другого счета)
 		void deposit(double amount) { balance += amount; }
 
+		// Withdraw money from account(same as deposit plans), Вывод денег с аккаунта(планы такие же, как и у deposit)
 		void withdraw(double amount) {
 			if (amount > balance) {
 				cout << "Error - Insufficient funds for withdrawal." << endl;
@@ -155,13 +168,44 @@ class Account {
 			}
 		}
 
-		void generateSecretKeys() const {
-			
+		//Generate secret keys for an account using std::randomdevice, Генерация ключей для аккаунта через функцию std::randomdevice
+		vector<string> generateSecretKeys() const {
+
+			//Generating random numbers by requesting data from Windows, Генерация рандомных чисел через запросы в Windows	Idea of this method: https://www.youtube.com/watch?v=1NXPf6Loshc 
+			random_device rd;
+			mt19937 rand(rd());
+			uniform_int_distribution<int> distance(0, library.size() - 1);
+
+			vector<string> dict;
+
+			while (dict.size() < 6) {
+				string word = library[distance(rand)];
+
+				if (find(dict.begin(), dict.end(), word) == dict.end()) {
+					dict.push_back(word);
+				}
+			}
+
+			return dict;
 		}
 
 };
 
+//All information about users, Вся информация о пользователях
+unordered_map<string, Account> dataUsers;
 
+
+//Function to add user(also checks if username is not already in the dataUsers(in the future need to add checking the secret key combination),
+//Функция для добавления пользователя в dataUsers + проверка на наличие имени пользователя в dataUsers(в будщем надо добавить проверку на комбинацию ключей)
+void addUser(const Account& user) {
+	if (dataUsers.count(user.getName()) == 0) {
+		dataUsers.insert({ user.getName(), user });
+		cout << "You successfully registered your account!\n";
+	}
+	else {
+		cout << "You can't use this username - choose another one\n";
+	}
+}
 
 class Transaction {
 	private:
