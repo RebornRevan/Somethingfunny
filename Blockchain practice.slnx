@@ -3,5 +3,5 @@
     <Platform Name="x64" />
     <Platform Name="x86" />
   </Configurations>
-  <Project Path="Blockchain practice/Blockchain practice.vcxproj" />
+  <Project Path="Blockchain practice/Blockchain practice.vcxproj" Id="348cc222-b670-43e1-9218-39d1fe1e5b04" />
 </Solution>

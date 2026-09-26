@@ -1,0 +1,14 @@
+﻿  main.cpp
+C:\Для университета\C++ projects\Blockchain practice\Blockchain practice\Blockchain.h(18,2): warning C4996: 'SHA256_Init': Since OpenSSL 3.0
+  (компиляция исходного файла "main.cpp")
+  
+C:\Для университета\C++ projects\Blockchain practice\Blockchain practice\Blockchain.h(19,2): warning C4996: 'SHA256_Update': Since OpenSSL 3.0
+  (компиляция исходного файла "main.cpp")
+  
+C:\Для университета\C++ projects\Blockchain practice\Blockchain practice\Blockchain.h(20,2): warning C4996: 'SHA256_Final': Since OpenSSL 3.0
+  (компиляция исходного файла "main.cpp")
+  
+C:\Для университета\C++ projects\Blockchain practice\Blockchain practice\Blockchain.h(90,34): warning C4267: аргумент: преобразование из "size_t" в "int"; возможна потеря данных
+  (компиляция исходного файла "main.cpp")
+  
+  Blockchain practice.vcxproj -> C:\Для университета\C++ projects\Blockchain practice\x64\Debug\Blockchain practice.exe
