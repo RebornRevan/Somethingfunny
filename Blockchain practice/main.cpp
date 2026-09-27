@@ -3,10 +3,21 @@
 int main() {
 	BlockChain blockchain(4);
 
-	blockchain.createBlock("Transaction: I transfered 10 USD to Bob");
-	blockchain.createBlock("Withdrawl: Bob withdraw 5 USD");
+	Account user1("Guest", 0.0);
+	Account user2("Dumbass", 10.0);
+	Account user3("Genius", 100.0);
+
+	Account clon("Dumbass", 10.0);
+
+
+	addUser(user1);
+	addUser(user2);
+	addUser(user3);
+	//addUser(clon);
 
 	blockchain.printBlockChain();
+
+	printDataUsers();
 
 	cout << "Blockchain Valid?\n" << (blockchain.isHashValid() ? "Yes" : "No") << endl;
 
