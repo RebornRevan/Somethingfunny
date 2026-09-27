@@ -1,16 +1,16 @@
 UPDATE:
-~~-Finished Account class~~
--Finished Transaction class
 
-~~-Created and finished easy user registration~~
--Began method to count balance dynamic(creation of database for transactions)
+~~-Finished Transaction class~~ Started tests in main.cpp
+
+~~-Began method to count balance dynamic(creation of database for transactions)~~ Added some slight improvements in class functions and constructions, including error handling
+
+-Finished link between Block and Account and Transaction class
 
 FUTURE GOALS:
 
 ("-" = Can be done, "/" = Need knowledge to understand and create)
 
-~~-Finish class Transaction~~
--Linking class Block with Account and Transaction classes
+~~-Linking class Block with Account and Transaction classes~~
 
 -Update main.cpp
 
