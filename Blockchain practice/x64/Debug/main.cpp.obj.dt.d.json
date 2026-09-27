@@ -139,15 +139,19 @@
             "c:\\program files\\microsoft visual studio\\18\\community\\vc\\tools\\msvc\\14.51.36231\\include\\__msvc_heap_algorithms.hpp",
             "c:\\program files\\microsoft visual studio\\18\\community\\vc\\tools\\msvc\\14.51.36231\\include\\__msvc_minmax.hpp",
             "c:\\program files\\microsoft visual studio\\18\\community\\vc\\tools\\msvc\\14.51.36231\\include\\xbit_ops.h",
+            "c:\\program files\\microsoft visual studio\\18\\community\\vc\\tools\\msvc\\14.51.36231\\include\\iomanip",
+            "c:\\program files\\microsoft visual studio\\18\\community\\vc\\tools\\msvc\\14.51.36231\\include\\xlocmon",
+            "c:\\program files\\microsoft visual studio\\18\\community\\vc\\tools\\msvc\\14.51.36231\\include\\xloctime",
+            "c:\\program files\\microsoft visual studio\\18\\community\\vc\\tools\\msvc\\14.51.36231\\include\\unordered_map",
+            "c:\\program files\\microsoft visual studio\\18\\community\\vc\\tools\\msvc\\14.51.36231\\include\\xhash",
+            "c:\\program files\\microsoft visual studio\\18\\community\\vc\\tools\\msvc\\14.51.36231\\include\\list",
+            "c:\\program files\\microsoft visual studio\\18\\community\\vc\\tools\\msvc\\14.51.36231\\include\\xnode_handle.h",
             "c:\\program files\\openssl-win64\\include\\openssl\\sha.h",
             "c:\\program files\\openssl-win64\\include\\openssl\\macros.h",
             "c:\\program files\\openssl-win64\\include\\openssl\\opensslconf.h",
             "c:\\program files\\openssl-win64\\include\\openssl\\configuration.h",
             "c:\\program files\\openssl-win64\\include\\openssl\\opensslv.h",
-            "c:\\program files\\openssl-win64\\include\\openssl\\e_os2.h",
-            "c:\\program files\\microsoft visual studio\\18\\community\\vc\\tools\\msvc\\14.51.36231\\include\\iomanip",
-            "c:\\program files\\microsoft visual studio\\18\\community\\vc\\tools\\msvc\\14.51.36231\\include\\xlocmon",
-            "c:\\program files\\microsoft visual studio\\18\\community\\vc\\tools\\msvc\\14.51.36231\\include\\xloctime"
+            "c:\\program files\\openssl-win64\\include\\openssl\\e_os2.h"
         ],
         "ImportedModules": [],
         "ImportedHeaderUnits": []

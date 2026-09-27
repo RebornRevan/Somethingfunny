@@ -158,10 +158,10 @@ class Account {
 		// Withdraw money from account(same as deposit plans), Вывод денег с аккаунта(планы такие же, как и у deposit)
 		void withdraw(double amount) {
 			if (amount > balance) {
-				cout << "Error - Insufficient funds for withdrawal." << endl;
+				throw exception("Error - Insufficient funds for withdrawal.\n");
 			}
 			else if (amount < 0) {
-				cout << "Error - Withdrawal amount cannot be negative." << endl;
+				throw exception("Error - Withdrawal amount cannot be negative.\n");
 			}
 			else {
 				balance -= amount;
@@ -209,17 +209,41 @@ void addUser(const Account& user) {
 
 class Transaction {
 	private:
-		Account sender;		//Sender of transaction, отправитель транзакции
-		Account receiver;	//Receiver of transaction, получатель транзакции
+		string sender;		//Name of sender of transaction, имя отправителя транзакции
+		string receiver;	//Name of receiver of transaction, имя получателя транзакции
 		double amount;		//Amount of transaction, сумма транзакции
+		string message;		//Information about transaction, информация о переводе
 	public:
-		Transaction(Account s, Account r, double a) : sender(s), receiver(r), amount(a) {}
+		Transaction(string s, string r, double a) : sender(s), receiver(r), amount(a) {}
 
-		Account getSender() const { return sender; }
+		string getSender() const { return sender; }
 
-		Account getReceiver() const { return receiver; }
+		string getReceiver() const { return receiver; }
 
+		void transferMoney() {
+			if (sender == receiver) {
+				throw invalid_argument("The receiver can't be you!\n");
+			}
+			if (dataUsers.count(sender) == 0) {
+				throw exception("The sender doesn't exist in the system\n");
+			}
+			if (dataUsers.count(receiver) == 0) {
+				throw exception("The receiver doesn't exist in the system\n");
+			}
 
+			Account& from = dataUsers.at(sender);
+			Account& to = dataUsers.at(receiver);
+
+			from.withdraw(amount);
+			to.deposit(amount);
+
+			message = "The sender <" + sender + "> had sent " + to_string(amount) + "$ to the receiver<" + receiver + ">\n";
+
+			dataBaseForTransactions.push_back(*this);
+		}
 
 		
 };
+
+
+vector<Transaction> dataBaseForTransactions;
