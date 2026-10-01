@@ -69,10 +69,10 @@ class Account {
 		// Withdraw money from account(same as deposit plans), Вывод денег с аккаунта(планы такие же, как и у deposit)
 		void withdraw(double amount) {
 			if (amount > balance) {
-				throw runtime_error("Error - Insufficient funds for withdrawal.\n");
+				throw runtime_error("Insufficient funds for withdrawal.\n");
 			}
 			else if (amount < 0) {
-				throw runtime_error("Error - Withdrawal amount cannot be negative.\n");
+				throw runtime_error("Withdrawal amount cannot be negative.\n");
 			}
 			else {
 				balance -= amount;
@@ -112,6 +112,8 @@ void printDataUsers() {
 		cout << "Name of the account: " << pair.first << '\n';
 		cout << "Balance on this account: $" << pair.second.getBalance() << "\n\n";
 	}
+	cout << "-----   That's all!   -----\n\n";
+
 }
 
 
@@ -165,7 +167,7 @@ class Transaction {
 			to.deposit(amount);
 
 			message = "The sender <" + sender + "> had sent " + to_string(amount) + "$ to the receiver<" + receiver + ">\n";
-
+			cout << message;
 			dataBaseForTransactions.push_back(*this);
 		}
 
@@ -279,6 +281,7 @@ public:
 			for (const auto& pair : block.data) {
 				cout << "The sender <" << pair.getSender() << "> had sent " << to_string(pair.getAmount()) << "$ to the receiver<" << pair.getReceiver() << ">\n";
 			}
+			cout << "-----   That's all!   -----\n\n";
 		}
 	}
 };
