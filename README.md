@@ -1,20 +1,20 @@
 UPDATE:
 
-~~-Finished Transaction class~~ Started tests in main.cpp
+~~Started tests in main.cpp~~ Finished main.cpp!
 
-~~-Began method to count balance dynamic(creation of database for transactions)~~ Added some slight improvements in class functions and constructions, including error handling
+~~Added some slight improvements in class functions and constructions, including error handling~~ Instead of my first plan, where I should just test my .h, I decided to turn the thing up and create conscole app
 
--Finished link between Block and Account and Transaction class
+~~-Finished link between Block and Account and Transaction class~~
 
 FUTURE GOALS:
 
-("-" = Can be done, "/" = Need knowledge to understand and create)
+("-" = Can be done, "/" = Need knowledge to understand and create, "-/" = Have an idea how to implement, but have some doubts)
 
-~~-Linking class Block with Account and Transaction classes~~
-
--Update main.cpp
+~~-Update main.cpp~~ Create a system for logging in and using secretKeys(сиды) for recovery
 
 -Other goals are written as a comments
+
+-/ Achieve mining reward for the account
 
 /Build P2P
 
