@@ -2,7 +2,7 @@ UPDATE:
 
 ~~Started tests in main.cpp~~ Finished main.cpp!
 
-~~Added some slight improvements in class functions and constructions, including error handling~~ Instead of my first plan, where I should just test my .h, I decided to turn the thing up and create conscole app
+~~Added some slight improvements in class functions and constructions, including error handling~~ Instead of my first plan, where I wanted just test my .h, I decided to turn the thing up and create conscole app
 
 ~~-Finished link between Block and Account and Transaction class~~
 
